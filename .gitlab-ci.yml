@@ -1,0 +1,30 @@
+image: ubuntu:latest
+
+variables:
+  DEST_DIR: /srv/gitlab-ce-pages/staging/$CI_JOB_ID/$CI_COMMIT_REF_NAME/$CI_PROJECT_PATH
+  SCHEMA_BASE_URL: https://cs.anu.edu.au/courses/extn1019/assets/schemas
+  EXTN1019_TEST_URL: https://extn1019.cecs.anu.edu.au/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME/
+
+# this task copies the sketch files to the EXTN1019 test webserver so they can
+# be viewed on-campus
+page-deploy:
+  tags:
+    - extn1019
+  stage: deploy
+  only:
+    - master
+  script:
+    - mkdir -p $DEST_DIR
+    # copy assets folder, and all top-level .html and .js files
+    - cp -r assets *.html *.js $DEST_DIR
+    - echo "your sketch should be visible shortly (on campus only) at the test URL"
+    - echo $EXTN1019_TEST_URL
+
+check-video:
+  tags:
+    - extn1019
+  stage: test
+  only:
+    - master
+  script:
+    - "[ -f 'prototype-demo.mov' ] || [ -f 'prototype-demo.mp4' ] || [ -f 'prototype-demo.mkv' ] && exit 0 || echo 'no \'prototype-demo.*\' video file found (see spec for details)' && exit 1"

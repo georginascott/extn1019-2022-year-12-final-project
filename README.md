@@ -1,17 +1,14 @@
-# EXTN1019 Prototype Demo
+# EXTN1019 Year 12 Final Project repo
 
-This is the template repo for the _Prototype Demo Video_ deliverable. The
-template code contains the usual Tone.js starter code you've been working with
-for all of Term 3. You should feel free to modify it as necessary to build your
-prototype---chat to us in class if you have any questions about how to do that.
+Ok, this is the big one. This repo is the one you'll use from here on in to
+develop and submit your [final
+project](https://comp.anu.edu.au/courses/extn1019/deliverables-year-12/03-final-project/).
+It's _also_ the repo you'll use to submit your [prototype
+demo](https://comp.anu.edu.au/courses/extn1019/deliverables-year-12/prototype/)
+(including the associated video). So it's basically the main repo you'll be
+working on from here until the end of this class.
 
-Make sure you read through the [assignment
-spec](https://cs.anu.edu.au/courses/extn1019/deliverables/prototype/#specification)
-carefully.
-
-Remember that in your fork of this template repo you need to commit & push
-- your code (as usual)
-- your _prototype-demo_ video file (with either an `.mov`, `.mp4`, or `.mkv` file extension)
-
-For more information, see
-<https://cs.anu.edu.au/courses/extn1019/deliverables/prototype/>.
+Since there will be (much!) more variation in your final projects than in the
+week-to-week lab stuff, it's harder to make a one-size-fits-all template. So you
+might have to make changes to this template (e.g. if you want to include
+Tone.js). If that's the case, let your teachers know and we can help you out.

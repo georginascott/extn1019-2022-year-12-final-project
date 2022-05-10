@@ -24,7 +24,8 @@ check-video:
   tags:
     - extn1019
   stage: test
+  allow_failure: test
   only:
     - master
   script:
-    - "[ -f 'prototype-demo.mov' ] || [ -f 'prototype-demo.mp4' ] || [ -f 'prototype-demo.mkv' ] && exit 0 || echo 'no \'prototype-demo.*\' video file found (see spec for details)' && exit 1"
+    - "[ -f 'fp-portfolio.mov' ] || [ -f 'fp-portfolio.mp4' ] || [ -f 'fp-portfolio.mkv' ] || [ -f 'fp-portfolio.pdf' ] || [ -f 'fp-portfolio.ppt' ] && exit 0 || echo 'no portfolio file found (see spec for details)' && exit 1"

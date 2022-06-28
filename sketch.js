@@ -1,61 +1,54 @@
-
-let video;
-var color_button;
-
-function preload() {
+function preload(){
   imgE = loadImage('Letters/e.png');
   imgR = loadImage('Letters/r.png');
+  imgN = loadImage('Letters/n.png');
+  imgW = loadImage('Letters/w.png');
 }
 
-function setup() {
+function setup(){
   createCanvas(windowWidth, windowHeight);
   background(10, 20, 40);
 }
   
-
-let arrPLS;
-let count = 0;
-let e;
-
-let letters = [];
-let img = [24];
+var count = 0;
+var letters = [count];
+var img = [24];
  
 function draw(){
-  if (keyIsPressed === true);{
-    //frameRate(0.01)
-//   if (keyCode === 69){ //e
-//     // letters[4] = imgE;
-//     // image(letters[4], 200, 200, random(80, 200), 200);
+  circle(200, 200, 20);
+}
 
-// //write a new function which should determine what key is pressed : KeyPressed
+var location = 0;
 
-//     letters.push("e")
-    
-//   }
-  if (keyCode === 82){ //r
-    // letters[17] = imgR;
-    // frameRate(0.01); 
-    //image(imgR, random(40, 100), random(40, 100), 100, 100);
-    
-    
-  }
-  
-// frameRate(5);
-// for(i = 0, i=24; i++;){
-//   image(letters[i], random(20, 80), random(200, 40), 30, 30);
+function keyPressed(){ 
+//   if (count = 0){
+//     location = 20;
+//  }
+// else{
+//   location = count + 50;
 // }
-
-print(letters);
-
-
-fill(random(20, 250), 200, random(180, 250));
-circle(200, 200, 90);
-}
-}
-
-function keyPressed(){ //WORK ON!!!!!!!!!!!!!!!!!
   if (keyCode === 69){ //e
-    letters.push("e")
+     letters.push("e");
+     image(imgE, 100, 200, random(80, 200), 100);
+     count++;
+  }
+
+  if (keyCode === 78){ //r
+    letters.push("n");
+    image(imgN, count * 20, random(40, 100), 100, 100);
+    count++;
+  }
+
+  if (keyCode === 82){ //r
+    letters.push("r");
+    image(imgR, count * 20, random(40, 10), 100, 100);
+    count++
+  }
+
+  if (keyCode === 87){ //e
+    letters.push("w")
+    image(imgW, count * 20, 200, random(200, 400), 200);
+    count++
   }
 }
 

@@ -7,7 +7,7 @@ function preload(){
 
 function setup(){
   createCanvas(windowWidth, windowHeight);
-  background(10, 20, 40);
+  background(200, 200, 200);
 }
   
 var count = 0;
@@ -15,39 +15,45 @@ var letters = [count];
 var img = [24];
  
 function draw(){
-  circle(200, 200, 20);
+  frameRate(1);
+  background(200, 200, 200);
+  image(imgE, random(0, 200), random(0, 200), 50, 50);
+  
+  
 }
 
-var location = 0;
+var next;
 
 function keyPressed(){ 
-//   if (count = 0){
-//     location = 20;
-//  }
-// else{
-//   location = count + 50;
-// }
+
+  if (count = 0){
+    next = 20;
+  }
+  else {
+    next = count * 100
+  }
+
   if (keyCode === 69){ //e
      letters.push("e");
-     image(imgE, 100, 200, random(80, 200), 100);
-     count++;
+     count++
+     image(imgE, next, 200, 100, 100);
   }
 
   if (keyCode === 78){ //r
     letters.push("n");
-    image(imgN, count * 20, random(40, 100), 100, 100);
-    count++;
+    image(imgN, next, 10, 100, 100);
+    count++ 
   }
 
   if (keyCode === 82){ //r
     letters.push("r");
-    image(imgR, count * 20, random(40, 10), 100, 100);
+    image(imgR, next, 400, 100, 100);
     count++
   }
 
   if (keyCode === 87){ //e
     letters.push("w")
-    image(imgW, count * 20, 200, random(200, 400), 200);
+    image(imgW, next, 500, 100, 200);
     count++
   }
 }

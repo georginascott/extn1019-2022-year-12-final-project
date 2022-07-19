@@ -3,10 +3,19 @@ function preload(){
   imgR = loadImage('Letters/r.png');
   imgN = loadImage('Letters/n.png');
   imgW = loadImage('Letters/w.png');
+  imgQ = loadImage('Letters/q.png');
+  imgT = loadImage('Letters/t.png');
+  imgY = loadImage('Letters/y.png');
 }
 
 function setup(){
   createCanvas(windowWidth, windowHeight);
+  
+
+  button = createButton('Messed up your name?');
+  button.position(500, 400);
+  button.mousePressed(reassign);
+
   background(200, 200, 200);
 }
   
@@ -14,48 +23,69 @@ var count = 0;
 var letters = [count];
 var img = [24];
  
+
+var n;
 function draw(){
-  frameRate(1);
+  frameRate(0.02);
   background(200, 200, 200);
-  image(imgE, random(0, 200), random(0, 200), 50, 50);
-  
-  
+}
+
+function reassign(){
+  count = 0;
+  clear();
+  background(200, 200, 200);
 }
 
 var next;
+var count = count;
+var y = 20;
 
 function keyPressed(){ 
-
-  if (count = 0){
-    next = 20;
-  }
-  else {
-    next = count * 100
-  }
-
+  next = count * 90;
+  
   if (keyCode === 69){ //e
-     letters.push("e");
+    letters.push("e");
+     image(imgE, next, 100 + next, 100, 100);
      count++
-     image(imgE, next, 200, 100, 100);
   }
 
-  if (keyCode === 78){ //r
+  if (keyCode === 78){ //n
     letters.push("n");
-    image(imgN, next, 10, 100, 100);
+    image(imgN, next, y, 100, 100); //y = 150
     count++ 
+  }
+
+  if (keyCode === 81){ //q
+    letters.push("q")
+    image(imgQ, next, 190, 100, 200);
+    count++
   }
 
   if (keyCode === 82){ //r
     letters.push("r");
-    image(imgR, next, 400, 100, 100);
+    image(imgR, next, 200, 100, 100);
     count++
   }
 
-  if (keyCode === 87){ //e
-    letters.push("w")
-    image(imgW, next, 500, 100, 200);
+  if (keyCode === 84){ //t
+    letters.push("t");
+    image(imgT, next, 280, 100, 100);
     count++
   }
+
+  if (keyCode === 87){ //w
+    letters.push("w")
+    image(imgW, next, 360, 100, 200);
+    count++
+  }
+
+  if (keyCode === 89){ //y
+    letters.push("y")
+    image(imgY, next, 400, 100, 200);
+    count++
+  }
+  console.log(count)
+  count = count;
 }
 
 // if (keyIsPressed == true);{

@@ -31,7 +31,7 @@ var count = 0;
 var letters = [count];
 var img = [24];
 var n;
-let xPos = 0;
+let yPos = 0;
 let aIs = false;
 let bIs = false;
 
@@ -41,8 +41,14 @@ function keyPressed(){
   if (keyCode === 65){ //a
     letters.push("a");
      //newA = image(imgA, next, 400, 100, 100); //400 was 100 + next
-     count++
+     //count++
      aIs = true;
+  }
+  if (keyCode === 66){ //b
+    letters.push("a");
+     //newA = image(imgA, next, 400, 100, 100); //400 was 100 + next
+     //count++
+     bIs = true;
   }
   
 }
@@ -50,15 +56,19 @@ function keyPressed(){
 function draw(){
   frameRate(8); //was 0.02
   background(200, 200, 200);
-  xPos = xPos + 2;
+  yPos = yPos + 2;
+  //count = count * 20;
 
   if (aIs == true){ //== for boolean
-    image(imgA, xPos, 200, 100, 100);
-    aIs = false;
+    image(imgA, 100, yPos, 100, 100);
+    count++
+    //aIs = false; - can't have this as the the letter will go away when the aIs becomes false
   }
   if (bIs == true){
-    image(imgB, xPos, 200, 100, 100);
+    image(imgB, 100, yPos, 100, 100);
+    count++
   }
+  //PROBLEM HERRE: WE CANNOT SPAWN THE LETTERS AFTER EACH OTHER, PROBLEMATIC ATM!
 }
 
 function reassign(){

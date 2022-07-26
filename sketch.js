@@ -33,6 +33,7 @@ var img = [24];
 var n;
 let xPos = 0;
 let aIs = false;
+let bIs = false;
 
 function keyPressed(){ 
   next = count * 90;
@@ -47,12 +48,16 @@ function keyPressed(){
 }
 
 function draw(){
-  frameRate(2); //was 0.02
+  frameRate(8); //was 0.02
   background(200, 200, 200);
-  xPos = xPos + 7;
+  xPos = xPos + 2;
 
   if (aIs == true){ //== for boolean
-    image(imgA, xPos, 200, 400, 400);
+    image(imgA, xPos, 200, 100, 100);
+    aIs = false;
+  }
+  if (bIs == true){
+    image(imgB, xPos, 200, 100, 100);
   }
 }
 

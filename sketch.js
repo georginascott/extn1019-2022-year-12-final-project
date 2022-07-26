@@ -1,11 +1,17 @@
 function preload(){
+  imgA = loadImage('Letters/a.png');
+  imgB = loadImage('Letters/b.png');
+  imgC = loadImage('Letters/c.pmg');
+  imgD = loadImage('Letters/d.png');
   imgE = loadImage('Letters/e.png');
+  imgF = loadImage('Letters/f.png');
   imgR = loadImage('Letters/r.png');
   imgN = loadImage('Letters/n.png');
   imgW = loadImage('Letters/w.png');
   imgQ = loadImage('Letters/q.png');
   imgT = loadImage('Letters/t.png');
   imgY = loadImage('Letters/y.png');
+
 }
 
 function setup(){
@@ -43,9 +49,40 @@ var y = 20;
 function keyPressed(){ 
   next = count * 90;
   
+
+  if (keyCode === 65){ //a
+    letters.push("a");
+     image(imgA, next, 100 + next, 100, 100);
+     count++
+  }
+
+  if (keyCode === 66){ //b
+    letters.push("b");
+     image(imgB, next, 100 + next, 100, 100);
+     count++
+  }
+
+  if (keyCode === 67){ //c
+    letters.push("c");
+     image(imgC, next, 100 + next, 100, 100);
+     count++
+  }
+
+  if (keyCode === 68){ //d
+    letters.push("d");
+     image(imgD, next, 100 + next, 100, 100);
+     count++
+  }
+
   if (keyCode === 69){ //e
     letters.push("e");
      image(imgE, next, 100 + next, 100, 100);
+     count++
+  }
+
+  if (keyCode === 70){ //f
+    letters.push("f");
+     image(imgF, next, 100 + next, 100, 100);
      count++
   }
 

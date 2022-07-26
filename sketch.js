@@ -1,23 +1,25 @@
 function preload(){
   imgA = loadImage('Letters/a.png');
   imgB = loadImage('Letters/b.png');
-  imgC = loadImage('Letters/c.pmg');
+  imgC = loadImage('Letters/c.png');
   imgD = loadImage('Letters/d.png');
   imgE = loadImage('Letters/e.png');
   imgF = loadImage('Letters/f.png');
+  imgG = loadImage('Letters/g.png');
+  imgH = loadImage('Letters/h.png');
+  imgI = loadImage('Letters/i.png');
+  imgJ = loadImage('Letters/j.png');
   imgR = loadImage('Letters/r.png');
   imgN = loadImage('Letters/n.png');
   imgW = loadImage('Letters/w.png');
   imgQ = loadImage('Letters/q.png');
   imgT = loadImage('Letters/t.png');
   imgY = loadImage('Letters/y.png');
-
 }
 
 function setup(){
   createCanvas(windowWidth, windowHeight);
   
-
   button = createButton('Messed up your name?');
   button.position(500, 400);
   button.mousePressed(reassign);
@@ -28,12 +30,30 @@ function setup(){
 var count = 0;
 var letters = [count];
 var img = [24];
- 
-
 var n;
+let xPos = 0;
+let aIs = false;
+
+function keyPressed(){ 
+  next = count * 90;
+
+  if (keyCode === 65){ //a
+    letters.push("a");
+     //newA = image(imgA, next, 400, 100, 100); //400 was 100 + next
+     count++
+     aIs = true;
+  }
+  
+}
+
 function draw(){
-  frameRate(0.02);
+  frameRate(2); //was 0.02
   background(200, 200, 200);
+  xPos = xPos + 7;
+
+  if (aIs == true){ //== for boolean
+    image(imgA, xPos, 200, 400, 400);
+  }
 }
 
 function reassign(){
@@ -45,129 +65,117 @@ function reassign(){
 var next;
 var count = count;
 var y = 20;
+var newA;
 
-function keyPressed(){ 
-  next = count * 90;
+
+
+
+
+
+// function keyPressed(){ 
+//   next = count * 90;
+
+//   if (keyCode === 65){ //a
+//     letters.push("a");
+//      //newA = image(imgA, next, 400, 100, 100); //400 was 100 + next
+//      count++
+//      aIs = true;
+//   }
   
+//   if (keyCode === 66){ //b
+//     letters.push("b");
+//      image(imgB, next, 400, 100, 100);
+//      count++
+//   }
 
-  if (keyCode === 65){ //a
-    letters.push("a");
-     image(imgA, next, 100 + next, 100, 100);
-     count++
-  }
+//   if (keyCode === 67){ //c
+//     letters.push("c");
+//      image(imgC, next, 100 + next, 100, 100);
+//      count++
+//   }
 
-  if (keyCode === 66){ //b
-    letters.push("b");
-     image(imgB, next, 100 + next, 100, 100);
-     count++
-  }
+//   if (keyCode === 68){ //d
+//     letters.push("d");
+//      image(imgD, next, 100 + next, 100, 100);
+//      count++
+//   }
 
-  if (keyCode === 67){ //c
-    letters.push("c");
-     image(imgC, next, 100 + next, 100, 100);
-     count++
-  }
+//   if (keyCode === 69){ //e
+//     letters.push("e");
+//      image(imgE, next, 100 + next, 100, 100);
+//      count++
+//   }
 
-  if (keyCode === 68){ //d
-    letters.push("d");
-     image(imgD, next, 100 + next, 100, 100);
-     count++
-  }
+//   if (keyCode === 70){ //f
+//     letters.push("f");
+//      image(imgF, next, 100 + next, 100, 100);
+//      count++
+//   }
 
-  if (keyCode === 69){ //e
-    letters.push("e");
-     image(imgE, next, 100 + next, 100, 100);
-     count++
-  }
+//   if (keyCode === 71){ //g
+//     letters.push("g");
+//      image(imgG, next, 100 + next, 100, 100);
+//      count++
+//   }
 
-  if (keyCode === 70){ //f
-    letters.push("f");
-     image(imgF, next, 100 + next, 100, 100);
-     count++
-  }
+//   if (keyCode === 72){ //h
+//     letters.push("h");
+//      image(imgH, next, 100 + next, 100, 100);
+//      count++
+//   }
 
-  if (keyCode === 78){ //n
-    letters.push("n");
-    image(imgN, next, y, 100, 100); //y = 150
-    count++ 
-  }
+//   if (keyCode === 73){ //i
+//     letters.push("i");
+//      image(imgI, next, 100 + next, 100, 100);
+//      count++
+//   }
 
-  if (keyCode === 81){ //q
-    letters.push("q")
-    image(imgQ, next, 190, 100, 200);
-    count++
-  }
-
-  if (keyCode === 82){ //r
-    letters.push("r");
-    image(imgR, next, 200, 100, 100);
-    count++
-  }
-
-  if (keyCode === 84){ //t
-    letters.push("t");
-    image(imgT, next, 280, 100, 100);
-    count++
-  }
-
-  if (keyCode === 87){ //w
-    letters.push("w")
-    image(imgW, next, 360, 100, 200);
-    count++
-  }
-
-  if (keyCode === 89){ //y
-    letters.push("y")
-    image(imgY, next, 400, 100, 200);
-    count++
-  }
-  console.log(count)
-  count = count;
-}
-
-// if (keyIsPressed == true);{
-  // if (keyCode === 69){ //e
-  //   frameRate(5); 
-  //   image(imgE, 200, 200, 200, 200);
-  //   append(letters, imgE);
-  // }
-  // if (keyCode === 82){ //r
-  //   //image(imgR, 0, 100, 80, 80);
-  //   image(imgR, random(40, 100), random(40, 100), 100, 100);
-  //   append(letters, imgR);
-  // }
+//   if (keyCode === 74){ //j
+//     letters.push("j");
+//      image(imgJ, next, 100 + next, 100, 100);
+//      count++
+//   }
 
 
-  //image(letters[1], 0, 100, 80, 80);
-  //image(letters[1], 0, 100, 80, 80);
-  
-  // let numLetters = 4;
-  // let idkYet = false;
-  // while (idkYet == false) {
-  //   //index the array with the number of the users inputs as a stub
-  //   //lettersArr[0].draw()
+//   if (keyCode === 78){ //n
+//     letters.push("n");
+//     image(imgN, next, y, 100, 100); //y = 150
+//     count++ 
+//   }
+
+//   if (keyCode === 81){ //q
+//     letters.push("q")
+//     image(imgQ, next, 190, 100, 200);
+//     count++
+//   }
+
+//   if (keyCode === 82){ //r
+//     letters.push("r");
+//     image(imgR, next, 200, 100, 100);
+//     count++
+//   }
+
+//   if (keyCode === 84){ //t
+//     letters.push("t");
+//     image(imgT, next, 280, 100, 100);
+//     count++
+//   }
+
+//   if (keyCode === 87){ //w
+//     letters.push("w")
+//     image(imgW, next, 360, 100, 200);
+//     count++
+//   }
+
+//   if (keyCode === 89){ //y
+//     letters.push("y")
+//     image(imgY, next, 400, 100, 200);
+//     count++
+//   }
+//   console.log(count)
+//   count = count;
 // }
 
-// if (keyIsPressed === true){
-//   console.log("We working :) ")
-//   if (keyCode === 69){ //e
-//     frameRate(5); 
-//     //image(imgE, 200, 200, 200, 200);
-   
-//     myLetter.letter = 'e'
-//     myLetter.img = imgE
-
-//   }
-//   if (keyCode === 82){ //r
-//     //image(imgR, random(40, 100), random(40, 100), 100, 100);
-//     append(images, imgR);
-//     append(images, "r")
-
-//     myLetter.letter = 'r'
-//     myLetter.img = imgR
-    
-//   }
-//   image(myLetter.img, random(40, 100), random(40, 100), 100, 100);
 
 
 //video = createCapture(VIDEO); - captures video of person

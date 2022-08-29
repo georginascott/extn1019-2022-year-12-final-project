@@ -42,9 +42,9 @@ function setup(){
 
   background(200, 200, 200);
 
-  video = createCapture(VIDEO);
-  video.size(320, 200);
-  video.hide();
+  // video = createCapture(VIDEO);
+  // video.size(320, 200);
+  // video.hide();
 }
   
 var count = 0;
@@ -54,10 +54,22 @@ var letterData;
 var movement;
 
 
+let instructionText = true;
+
 function draw(){
   frameRate(8); //was 0.02
   background(200, 200, 200);
   movement = random(0, 2);
+ 
+
+  if(instructionText == true){
+    textSize(40);
+    textFont('Georgia');
+    text('instruct ', (windowWidth/2) - 400, 100);
+    fill(0, 0, 0);
+  }
+  
+
  //loop through array of letters, 
  for(var i = 0; i < letters.length; i++){
    let letterData = letters[i];
@@ -80,7 +92,7 @@ function draw(){
    }
 
    if(frameCount >= 110){
-     
+
      background(0, 0, 0);
      textSize(40);
      textFont('Georgia');
@@ -94,11 +106,11 @@ function draw(){
       fill(255, 255, 255);
    }
 
-   push(); //Video stuffs
-   translate(width,0);
-   scale(-1, 1);
-   image(video, 0, 0, 320, 240);
-   pop();
+  //  push(); //Video stuffs
+  //  translate(width,0);
+  //  scale(-1, 1);
+  //  image(video, 0, 0, 320, 240);
+  //  pop();
  }
 
   //  for(var i = 0; i < letters.length; i++){
@@ -127,7 +139,7 @@ var newA;
 
 function keyPressed(){ 
    next = count * 90;
-
+instructionText = false;
   if (keyCode === 65){ //a
     let y = random(100, 200);
     letters.push([imgA, next, y, 100, 100]);
